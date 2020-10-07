@@ -23,10 +23,11 @@
   * http://192.168.99.100/?page=member&id=1+AND+1%3D2+UNION+SELECT+table_schema%2C+table_name+FROM+information_schema.tables&Submit=Submit#
 * The database uses InnoDB
 
-## Image upload
-* Hidden input field MAX_FILE_SIZE sounds like a constant that should be on the server.
-* Files must be jpg/jpeg (probably)
+## Image upload notes (1 flag got)
+* Hidden input field `MAX_FILE_SIZE` sounds like a constant that should be on the server. The default is 100 kB, editing it doesn't appear to allow uploading larger files.
+* MIME-type must be jpg
 * Images are not added to database even if successfully uploaded (at least not `list_images`)
+* Trying to upload multiple images appears to discard all but one of them
 
 # Flag count
-6/14
+7/14
