@@ -3,12 +3,13 @@
 2. Host-only Adapter, name vboxnet0
 
 # Notes to self
-## Footer
-* The copyright link points to ?page=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c (the albatross page), which feels odd (64 characters, too)
+## Albatross (1 flag got)
+* The URL is odd ?page=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c (64 characters, too)
 
 ## Feedback
 * The **name** field allows HTML injection~~, but not XSS. Simply adding a `<script>` block does not return a flag (the tags are filtered out).~~
 * Actually XSS **is** possible, it's just `<script>` (lowercase) tags that are filtered. `<SCRIPT>` works fine.
+* Name can be left empty with `validate_required = () => true;`, is saved correctly
 
 ## Database
 * There are 5 databases (+ information_schema):
@@ -30,4 +31,4 @@
 * Trying to upload multiple images appears to discard all but one of them
 
 # Flag count
-7/14
+8/14
