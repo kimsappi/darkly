@@ -35,14 +35,6 @@ grep -r '5' . # Tried ls -lR | grep flag, grep -r -i 'flag' ., etc.
 * The **name** field allows HTML injection. Lowercase `<script>` (lowercase) tags are filtered out. XSS **is** possible, e.g. `<SCRIPT>` works fine.
 * Name can be left empty with `validate_required = () => true;`, is saved correctly
 
-## NSA image / ?page=media
-* `wget -r` will return a list of pages linked to.
-* There is a link to http://192.168.99.100/index.php?page=media&src=nsa, which is an image of an NSA logo. The link is at index.
-  * This is odd, because the other images aren't links and the page appears to be pretty useless.
-* Changing the src to anything else returns the 'Sorry Wrong Answer' image from incorrect logins.
-  * Leaving the src parameter out returns just an empty page
-  * Results in a 404, as it tries to include `/<src>` in the page in an `<object>` tag
-
 ## Database
 * There are 5 databases (+ information_schema):
   * `Member_Brute_Force, Member_Sql_Injection, Member_guestbook, Member_images, Member_survey`
@@ -63,4 +55,4 @@ grep -r '5' . # Tried ls -lR | grep flag, grep -r -i 'flag' ., etc.
 * Trying to upload multiple images appears to discard all but one of them
 
 # Flag count
-8/14
+9/14
