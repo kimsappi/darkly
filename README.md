@@ -3,6 +3,31 @@
 2. Host-only Adapter, name vboxnet0
 
 # Notes to self
+## robots.txt
+* Hints at directories: `/whatever`, `/.hidden`
+
+## /whatever/
+* Contains `htpasswd`: `root:8621ffdbc5698829397d97767ac13db3`
+* `reverseMD5(8621ffdbc5698829397d97767ac13db3)` == dragon
+  * https://md5.gromweb.com/?md5=8621ffdbc5698829397d97767ac13db3
+* dragon is not the root account's password, however
+* The login form uses GET, which is an interesting choice
+
+## /.hidden/
+* Lots of directories with random names, with similar directories as children
+* `README` file: `Do you want help? Me too` in French
+* All files modified 11.9.2001 21:21 ('9/11')
+* Each child dir begins with a different letter a..z
+```shell
+#(best run in `goinfre`)
+wget --recursive -e robots=off --no-parent 'http://192.168.99.100/.hidden/'
+cd 192.168.99.100/.hidden
+grep -r '5' . # Tried ls -lR | grep flag, grep -r -i 'flag' ., etc.
+# I suspected it's some kind of hex so tried searching for 5, and...
+```
+
+`99dde1d35d1fdd283924d84e6d9f1d820` is 1 character too long to be an MD5 hash, removing first or last doesn't seem to be a hash either. Probably too short to be a flag. Doesn't make sense as hex ASCII either.
+
 ## Albatross (1 flag got)
 * The URL is odd ?page=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c (64 characters, too)
 
