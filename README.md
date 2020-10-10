@@ -3,15 +3,11 @@
 2. Host-only Adapter, name vboxnet0
 
 # Notes to self
-## robots.txt
-* Hints at directories: `/whatever`, `/.hidden`
+## Login form
+* Uses GET
 
-## /whatever/
-* Contains `htpasswd`: `root:8621ffdbc5698829397d97767ac13db3`
-* `reverseMD5(8621ffdbc5698829397d97767ac13db3)` == dragon
-  * https://md5.gromweb.com/?md5=8621ffdbc5698829397d97767ac13db3
-* dragon is not the root account's password, however
-* The login form uses GET, which is an interesting choice
+## robots.txt (1/2 flags got)
+* Hints at directories: `/whatever`, `/.hidden`
 
 ## /.hidden/
 * Lots of directories with random names, with similar directories as children
@@ -55,4 +51,4 @@ grep -r '5' . # Tried ls -lR | grep flag, grep -r -i 'flag' ., etc.
 * Trying to upload multiple images appears to discard all but one of them
 
 # Flag count
-9/14
+10/14
